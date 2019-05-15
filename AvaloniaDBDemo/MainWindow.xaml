@@ -1,0 +1,32 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="500"
+        x:Class="AvaloniaDBDemo.MainWindow"
+        Title="AvaloniaDBDemo"
+        Width="500" Height="500"
+        CanResize="True">
+  <Grid Name="grid">
+    <Menu Background="LightGray" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+      <MenuItem Header="Acties">
+        <MenuItem Name="editMemberMenuItem" Header="Geselecteerd clublid bewerken"/>
+        <MenuItem Name="addMemberMenuItem" Header="Nieuw clublid toevoegen"/>
+        <MenuItem Name="removeMemberMenuItem" Header="Clublid verwijderen"/>
+        <MenuItem Name="extendMembershipMenuItem" Header="Lidmaatschap clublid verlengen"/>
+      </MenuItem>
+    </Menu>
+    <DataGrid Name="dataGrid" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,30"
+              AlternatingRowBackground="#e1ffad" RowBackground="#c5e096"
+              Height="440" Width="480">
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="ID" Binding="{Binding Id, Mode=OneWay}" IsReadOnly="True"/>
+        <DataGridTextColumn Header="Familienaam" Binding="{Binding LastName, Mode=TwoWay}"/>
+        <DataGridTextColumn Header="Voornaam" Binding="{Binding FirstName, Mode=TwoWay}"/>
+        <DataGridTextColumn Header="Mailadres" Binding="{Binding MailAddress, Mode=TwoWay}"/>
+        <DataGridTextColumn Header="Lidgeld betaalt tot..." Binding="{Binding MembershipExpiryDate, Mode=OneWay}"
+                            IsReadOnly="True"/>
+      </DataGrid.Columns>
+    </DataGrid>
+  </Grid>  
+</Window>

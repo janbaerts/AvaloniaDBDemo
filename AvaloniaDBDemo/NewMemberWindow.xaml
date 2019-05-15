@@ -1,0 +1,55 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="340" d:DesignHeight="410"
+        Width="340" Height="410"
+        x:Class="AvaloniaDBDemo.NewMemberWindow"
+        Title="Clublid toevoegen..."
+        CanResize="True">
+  <Window.Styles>
+    <Style Selector=":is(Button)">
+      <Setter Property="HorizontalContentAlignment" Value="Center"/>
+      <Setter Property="Width" Value="150"/>
+      <Setter Property="Margin" Value="10"/>
+    </Style>
+    <Style Selector=":is(TextBlock)">
+      <Setter Property="Margin" Value="10"/>
+      <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style Selector="TextBox">
+      <Setter Property="Width" Value="150"/>
+      <Setter Property="Margin" Value="10"/>
+    </Style>
+  </Window.Styles>
+  <Grid Name="grid">
+    <StackPanel Orientation="Vertical">
+      <StackPanel Orientation="Horizontal" Background="LightGray">
+        <TextBlock Text="ID" Width="150"/>
+        <TextBox Name="idTextBox" IsReadOnly="True"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Text="Achternaam" Width="150"/>
+        <TextBox Name="lastnameTextBox"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Text="Voornaam" Width="150"/>
+        <TextBox Name="firstnameTextBox"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Text="Mailadres" Width="150"/>
+        <TextBox Name="mailAddressTextBox"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Background="LightGray">
+        <TextBlock Text="Aanvang lidmaatschap" Width="150"/>
+        <TextBox Name="membershipExpiryDateTextBox" IsReadOnly="True"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <Button Name="okButton" Content="Opslaan in DB" IsDefault="True"/>
+        <Button Name="cancelButton" Content="Annuleren"/>
+      </StackPanel>
+    </StackPanel>
+    <TextBlock Name="statusBar" VerticalAlignment="Bottom" Text=""
+               Background="Gray" Margin="0" FontSize="12"/>
+    </Grid>
+</Window>
