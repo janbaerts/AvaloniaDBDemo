@@ -83,7 +83,6 @@ namespace AvaloniaDBDemo
         private void AddMemberMenuItem_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             Member newmember = new Member();
-            members.Add(newmember);
             NewMemberWindow nmw = new NewMemberWindow(newmember, false);
             nmw.Closing += NewMemberWindowClosed;
             nmw.ShowDialog(this);
@@ -102,15 +101,17 @@ namespace AvaloniaDBDemo
 
         private void NewMemberWindowClosed(object sender, System.EventArgs e)
         {
+            NewMemberWindow nmw = (NewMemberWindow)sender;
             Debug.WriteLine("Dialog closed.");
-            if (((NewMemberWindow)sender).isOk)
+            if (nmw.isOk)
             {
                 Debug.WriteLine("Is OK.");
-                DBAccess.SaveMember(((NewMemberWindow)sender).member, ((NewMemberWindow)sender).isUpdate);
+                DBAccess.SaveMember(nmw.member, nmw.isUpdate);
+                members.Add(nmw.member);
                 dataGrid.Items = null;
                 dataGrid.Items = members;
             }
-            ((NewMemberWindow)sender).Closing -= NewMemberWindowClosed;
+            nmw.Closing -= NewMemberWindowClosed;
         }
     }
 }

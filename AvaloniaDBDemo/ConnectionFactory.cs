@@ -15,19 +15,19 @@ namespace AvaloniaDBDemo
             SQLiteConnectionStringBuilder scsb = new SQLiteConnectionStringBuilder();
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                scsb.DataSource = @"D:\SQLite\AvaloniaDBDemo.db";
+                scsb.DataSource = @"..\..\..\AvaloniaDBDemo.db";
             }
             else
             {
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
                 {
-                    scsb.DataSource = "/home/student/AvaloniaDBDemo.db";
+                    scsb.DataSource = "AvaloniaDBDemo.db";
                 }
                 else
                 {
                     if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
                     {
-                        scsb.DataSource = "/Users/galahad/Desktop/AvaloniaDBDemo.db";
+                        scsb.DataSource = "AvaloniaDBDemo.db";
                     }
                 }
             }
