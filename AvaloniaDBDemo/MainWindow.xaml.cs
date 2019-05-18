@@ -12,7 +12,7 @@ namespace AvaloniaDBDemo
     {
         Grid grid;
         DataGrid dataGrid;
-        MenuItem saveMemberMenuItem;
+        MenuItem editMemberMenuItem;
         MenuItem addMemberMenuItem;
         MenuItem removeMemberMenuItem;
         MenuItem extendMembershipMenuItem;
@@ -39,8 +39,8 @@ namespace AvaloniaDBDemo
             dataGrid.Items = members;
             dataGrid.IsReadOnly = true;
 
-            saveMemberMenuItem = this.FindControl<MenuItem>("editMemberMenuItem");
-            saveMemberMenuItem.Click += SaveMember_Click;
+            editMemberMenuItem = this.FindControl<MenuItem>("editMemberMenuItem");
+            editMemberMenuItem.Click += EditMember_Click;
 
             addMemberMenuItem = this.FindControl<MenuItem>("addMemberMenuItem");
             addMemberMenuItem.Click += AddMemberMenuItem_Click;
@@ -88,7 +88,7 @@ namespace AvaloniaDBDemo
             nmw.ShowDialog(this);
         }
 
-        private void SaveMember_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void EditMember_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             if (dataGrid.SelectedIndex != -1)
             {
@@ -107,7 +107,10 @@ namespace AvaloniaDBDemo
             {
                 Debug.WriteLine("Is OK.");
                 DBAccess.SaveMember(nmw.member, nmw.isUpdate);
-                members.Add(nmw.member);
+                if (!nmw.isUpdate)
+                {
+                    members.Add(nmw.member);
+                }
                 dataGrid.Items = null;
                 dataGrid.Items = members;
             }
