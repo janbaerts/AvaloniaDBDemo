@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace AvaloniaDBDemo
@@ -10,17 +11,18 @@ namespace AvaloniaDBDemo
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string MailAddress { get; set; }
+        CultureInfo dateFormat = new CultureInfo("fr-FR");
 
         DateTime membershipExpiryDate;
         public string MembershipExpiryDate
         {
             get
             {
-                return membershipExpiryDate.ToShortDateString();
+                return $"{membershipExpiryDate.Day}/{membershipExpiryDate.Month}/{membershipExpiryDate.Year}";
             }
             set
             {
-                membershipExpiryDate = DateTime.Parse(value);
+                membershipExpiryDate = DateTime.Parse(value, dateFormat);
             }
         }
 

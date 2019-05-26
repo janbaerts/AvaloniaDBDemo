@@ -2,10 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="500"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="500"
         x:Class="AvaloniaDBDemo.MainWindow"
         Title="AvaloniaDBDemo -- Gamers Club MemberManager"
-        Width="500" Height="500"
+        Width="600" Height="500"
         CanResize="True">
   <Grid Name="grid">
     <Menu Background="LightGray" VerticalAlignment="Top" HorizontalAlignment="Stretch">
@@ -18,7 +18,7 @@
     </Menu>
     <DataGrid Name="dataGrid" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,30"
               AlternatingRowBackground="#e1ffad" RowBackground="#c5e096"
-              Height="440" Width="480">
+              Height="440" Width="580">
       <DataGrid.Columns>
         <DataGridTextColumn Header="ID" Binding="{Binding Id, Mode=OneWay}" IsReadOnly="True"/>
         <DataGridTextColumn Header="Familienaam" Binding="{Binding LastName, Mode=TwoWay}"/>
